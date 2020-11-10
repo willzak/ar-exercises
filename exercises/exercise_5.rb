@@ -7,12 +7,10 @@ require_relative './exercise_4'
 puts "Exercise 5"
 puts "----------"
 
-@store1.employees.create(first_name: "Khurram", last_name: "Virani", hourly_rate: 60)
-@store1.employees.create(first_name: "Mila", last_name: "Kunis", hourly_rate: 50)
-@store1.employees.create(first_name: "Margot", last_name: "Robbie", hourly_rate: 55)
-@store1.employees.create(first_name: "Ashton", last_name: "Kutcher", hourly_rate: 45)
+total_rev = Store.sum(:annual_revenue)
+total_avg_rev = Store.average(:annual_revenue)
+high_performers = Store.where("annual_revenue > 1000000").count
 
-@store2.employees.create(first_name: "Joni", last_name: "Mitchell", hourly_rate: 60)
-@store2.employees.create(first_name: "Sangsu", last_name: "Lee", hourly_rate: 60)
-@store2.employees.create(first_name: "Hyori", last_name: "Lee", hourly_rate: 65)
-@store2.employees.create(first_name: "Ruth", last_name: "Bader-Ginsburg", hourly_rate: 70)
+puts "TOTAL ANNUAL REVENUE FOR COMPANY: $#{total_rev}"
+puts "TOTAL AVERAGE ANNUAL REVENUE: $#{total_avg_rev}"
+puts "NUMBER OF STORES GENERATING $1M+ IN SALES: #{high_performers}"
